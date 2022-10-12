@@ -6,6 +6,7 @@
     --blue-llight: #cce5ff;
     --white: #ffffff;
     --blue:  #006397;
+    --black: #000000;
     --sm: 11px;
     --md: 14px;
     --lg: 20px;
@@ -23,12 +24,11 @@
 }
 
 body {
-    background: url(/img/bg-pattern-top.png), url(./img/bg-pattern-bottom.png);
+    background: url(./img/bg-pattern-top.png), url(./img/bg-pattern-bottom.png);
     background-position: top -1000px left -1000px, bottom -1100px right -1000px !important;
     background-repeat: no-repeat!important;
     background-size: cover!important;
     background-color:var(--blue)!important;
- /*    background-blend-mode: overlay!important; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,13 +80,30 @@ body {
     overflow: hidden;
 }
 
-.perfil .pic img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    overflow: hidden;
+    animation: morph 3s linear infinite;
+}
+
+.pic img {
     width: 100%;
-    width: 100%;
-    object-fit: cover;
+}
+
+/* animacion de la foto de perfil     */
+
+@keyframes morph {
+    0%, 100%  {
+         border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; 
+        }
+    34% { 
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; 
+    }
+    67% {
+         border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; 
+    }
 }
 
 .perfil h4 {
@@ -101,26 +118,6 @@ body {
     margin-top: 0.2rem;
     font-weight:lighter;
     line-height: 1rem;
-}
-
-
-.perfil .btn {
-    margin-top: 0.2rem;
-    padding:  0.5rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: var(--blue-light);
-    color: var(--blue);
-    border: 1px solid var(--blue-dark);
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-
-.perfil .btn:hover {
-    background: var(--blue-dark);
-    color: var(--blue-light);
-    border: 1px solid var(--blue-llight);
 }
 
 .izquierda_items {
@@ -239,13 +236,13 @@ body {
 }
 .habilidades .porcentaje {
     width: 100%;
-    height: 0.8rem;
+    height: 0.4rem;
     background: var(--white);
 }
 
 .habilidades .porcentaje div {
     width: 100%;
-    height: 0.8rem;
+    height: 0.4rem;
     background-color: var(--blue);
 }
 
@@ -263,6 +260,25 @@ body {
     width: 2rem;
     font-size: 1.2rem;
 }
+
+.izquierda .btn {
+    margin-top: 1rem;
+    padding:  0.5rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--blue-light);
+    color: var(--blue);
+    border: 1px solid var(--blue-dark);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.izquierda .btn:hover {
+    background: var(--blue-dark);
+    color: var(--blue-light);
+    border: 1px solid var(--blue-llight);
+}
+
 /* responsive */
 @media (max-width: 800px){
     .contenedor{
